@@ -5,13 +5,11 @@ const View = (props) => {
         <div className='view'>
             <div className="lines"></div>
             <ul className='list'>
-                <li>First name
-                    <span>{props.firstname}</span>
-                </li>
-                <li>Family name</li>
-                <li>Phone</li>
-                <li>Role</li>
-                <li>Message</li>
+                <li>First name: <span>{props.firstname}</span></li>
+                <li>Family name: <span>{props.lastname}</span></li>
+                <li>Phone: <span>{props.phone}</span></li>
+                <li>Role: <span>{props.role}</span></li>
+                <li>Message: <span>{props.message}</span></li>
             </ul>
         </div>
     );

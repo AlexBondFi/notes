@@ -1,20 +1,19 @@
 import React from 'react';
-import App from '../App';
 
 const Form = (props) => {
     return (
-        <form onSubmit={props.submit}>
-            <div className='inpuis'>
+        <form onSubmit={props.submit} onChange={props.change}>
+            <div className='inputs'>
             <label htmlFor="firstname">Name</label>
-            <input type="text" id='firstname'/>
+            <input type="text" name='firstname' id='firstname'/>
             </div>
             <div className='inputs'>
             <label htmlFor="lastname">Surname</label>
-            <input type="text" id='lastname'/>
+            <input type="text" name='lastname' id='lastname'/>
             </div>
             <div className='inputs'>
             <label htmlFor="phone">Phone</label>
-            <input type="number" id='phone'/>
+            <input type="tel" name='phone' id='phone'/>
             </div>
             <div className='inputs'>
             <label htmlFor="role">Role</label>
@@ -26,7 +25,7 @@ const Form = (props) => {
             </div>
             <div className='inputs'>
             <label htmlFor="message">Message</label>
-            <textarea id='message'></textarea>
+            <textarea name='message' id='message'></textarea>
             </div>
             <button type='submit'>BTN</button>
         </form>

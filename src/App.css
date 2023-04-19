@@ -1,7 +1,3 @@
-*{
-  background-color: deepskyblue;
-}
-
 .App {
   margin: 1rem;
   display: flex;
@@ -32,11 +28,12 @@ input, select, textarea {
   border-radius: 5px;
   border-style: none;
   font-size: 1.5rem;
+  height: 2em;
 }
 
 button{
   margin: 1rem;
-  background-color: violet;
+  background-color: lightgray;
 }
 
 .lines {
@@ -57,7 +54,7 @@ button{
 .list {
   color: #555;
   font-size: 22px;
-  padding: 0 !important;
+  padding: 0;
   width: 450px;
   font-family: courier, monospace;
   border: 1px solid #dedede;
@@ -70,6 +67,8 @@ button{
   height: auto;
   padding: 10px;
   text-transform: capitalize;
+  inline-size: auto;
+  overflow-wrap: break-word;
 }
 .modal{
   width: 30rem;
@@ -86,4 +85,5 @@ button{
   padding: 20px;
   border: 1px solid #888;
 }
-p{background-color: transparent;}
+p
+{background-color: transparent;}
