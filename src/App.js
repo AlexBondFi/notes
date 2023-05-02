@@ -37,9 +37,20 @@ class App extends Component {
 
   submitHandler =()=>{
     axios
-    .post('http://localhost:4001/posts/',{note})
+    .post('http://localhost:4001/posts/',this.state.note)
     .then((res)=> console.log(res))
     .catch((error)=>console.log('error'));
+    this.setState({
+      showModal: !this.state.showModal,
+      note: {
+        firstname: '',
+        lastname: '',
+        phone: '',
+        role: '',
+        message: ''
+      },
+    })
+    axios.get('http://localhost:4001/posts/').then(res => this.setState({ data: res.data }))
   }
 
   componentDidMount(){
@@ -63,10 +74,7 @@ render() {
       <Form submit={this.modalHandler} change={this.changeHandler}/>
       <View {...this.state.note}/>
       <Posts data={this.state.data}/>
-      {this.state.showModal && <Modal
-      //  click={this.modalHandler} 
-       click={this.submitHandler}
-       {...this.state.note}/>}
+      {this.state.showModal && <Modal click={this.modalHandler}{...this.state.note} submit={this.submitHandler}/>}
     </div>
   );
 }

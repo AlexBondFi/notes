@@ -9,8 +9,8 @@ const Modal = (props) => {
                 <p>Phone: <span>{props.phone}</span></p>
                 <p>Role: <span>{props.role}</span></p>
                 <p>Message: <span>{props.message}</span></p>
-            <button onClick={props.click}>SEND</button>
-            <button>NOT SEND</button>
+            <button onClick={props.submit}>SEND</button>
+            <button onClick={props.click}>NOT SEND</button>
             </div>
         </div>
     );
