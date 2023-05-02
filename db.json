@@ -1,0 +1,6 @@
+{
+  "posts": 
+  [{"id": 1, "firstname": "Sarah", "lastname": "Corner", "phone": "911", "role": "student", "message":"First commit"},
+  {"id": 2, "firstname": "Luke", "lastname": "Vaider", "phone": "040404040", "role": "student", "message":"Second commit"},
+  {"id": 3, "firstname": "John", "lastname": "John", "phone": "8-800-888-00-00", "role": "student", "message":"Third commit"}]
+}

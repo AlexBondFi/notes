@@ -17,9 +17,9 @@ const Form = (props) => {
             </div>
             <div className='inputs'>
             <label htmlFor="role">Role</label>
-            <select name="roles" id="role">
-                <option value="teacher">Student</option>
-                <option value="student">Teacher</option>
+            <select name="role" id="role">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
                 <option value="other">Other</option>
             </select>
             </div>

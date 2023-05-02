@@ -1,53 +1,72 @@
 import React, {Component} from 'react';
 import './App.css';
 import Form from './UI/Form';
-import View from './components/View'
+import View from './components/View';
 import Modal from './components/Modal';
+import Posts from './components/Posts';
+
+import axios from 'axios';
 
 class App extends Component {
   state = {
     showModal: false,
+    data: [],
+    note: {
     firstname: '',
     lastname: '',
     phone: '',
     role: '',
-    message: ''
+    message: ''}
   }
 
   modalHandler = (e) => {
     e.preventDefault()
-    console.log('I work');
-
     this.setState({
       showModal: !this.state.showModal
     })
   }
 
   changeHandler = (e) => {
-    console.log(e.target.value);
     this.setState({
-      [e.target.name]: e.target.value // name here is the 'name' in inputs
+      note: {
+        ...this.state.note,
+        [e.target.name]: e.target.value // name here is the 'name' in inputs
+      }
     });
   };
+
+  submitHandler =()=>{
+    axios
+    .post('http://localhost:4001/posts/',{note})
+    .then((res)=> console.log(res))
+    .catch((error)=>console.log('error'));
+  }
+
+  componentDidMount(){
+    axios.get('http://localhost:4001/posts/').then(res=>this.setState({data:res.data})) 
+  }
+
+  // componentDidMount(){
+  //   fetch('http://localhost:4001/posts/')
+  //   .then(res=>res.json())
+  //   .then(res=>{ // wrap setState in {} and use multiple statements
+  //     this.setState({data:res});
+  //     console.log('this we recieve from fetch',res);
+  //     console.log('this we recieve from fetch2',this.state.data);
+  //   }) 
+  // }
 
 
 render() {
   return (
     <div className="App">
       <Form submit={this.modalHandler} change={this.changeHandler}/>
-      <View
-      firstname={this.state.firstname}
-      lastname={this.state.lastname}
-      phone={this.state.phone}
-      role={this.state.role}
-      message={this.state.message}/>
+      <View {...this.state.note}/>
+      <Posts data={this.state.data}/>
       {this.state.showModal && <Modal
-       firstname={this.state.firstname}
-       lastname={this.state.lastname}
-       phone={this.state.phone}
-       role={this.state.role}
-       message={this.state.message}
-       click={this.modalHandler}/>}
+      //  click={this.modalHandler} 
+       click={this.submitHandler}
+       {...this.state.note}/>}
     </div>
   );
 }

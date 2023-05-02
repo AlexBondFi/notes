@@ -84,6 +84,8 @@ button{
   margin: 10%;
   padding: 20px;
   border: 1px solid #888;
+  inline-size: auto;
+  overflow-wrap: break-word;
 }
 p
 {background-color: transparent;}
